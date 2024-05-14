@@ -9,6 +9,24 @@ import { ButtonModule } from 'primeng/button';
 import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
+import {UsersComponent} from "./users/users.component";
+import {DropdownModule} from "primeng/dropdown";
+import {InputTextModule} from "primeng/inputtext";
+import {MultiSelectModule} from "primeng/multiselect";
+import {ProgressBarModule} from "primeng/progressbar";
+import {SliderModule} from "primeng/slider";
+import {ToggleButtonModule} from "primeng/togglebutton";
+import {ReclamationsComponent} from "./reclamations/reclamations.component";
+import {OverlayPanelModule} from "primeng/overlaypanel";
+import {RippleModule} from "primeng/ripple";
+import {TagModule} from "primeng/tag";
+import {ReclamationDetailsComponent} from "./reclamations/reclamationDetails/reclamationDetails.component";
+import {CardModule} from "primeng/card";
+import {DividerModule} from "primeng/divider";
+import {CheckboxModule} from "primeng/checkbox";
+import {PasswordModule} from "primeng/password";
+import {AddAdminComponent} from "./users/addAdmin/addAdmin.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 @NgModule({
     imports: [
@@ -20,8 +38,29 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        DashboardsRoutingModule
+        DashboardsRoutingModule,
+        DropdownModule,
+        InputTextModule,
+        MultiSelectModule,
+        ProgressBarModule,
+        SliderModule,
+        ToggleButtonModule,
+        OverlayPanelModule,
+        RippleModule,
+        TagModule,
+        CardModule,
+        DividerModule,
+        CheckboxModule,
+        PasswordModule,
+
     ],
-    declarations: [DashboardComponent]
+    declarations: [
+        DashboardComponent,
+        UsersComponent,
+        ReclamationsComponent,
+        ReclamationDetailsComponent,
+        AddAdminComponent,
+        ProfileComponent
+    ]
 })
 export class DashboardModule { }

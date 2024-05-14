@@ -1,0 +1,37 @@
+<div class="flex flex-column align-items-center justify-content-center">
+    <div style="border-radius:56px; padding:0.7rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+        <div class="w-12 surface-card lg:py-7 px-5 sm:px-8" style="border-radius:53px">
+            <div class="text-center mb-5">
+                <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none" />
+                <img [src]="'data:image/jpeg;base64,' + user.profileImage" style="border-radius:53px" height="100" class="mb-3" (click)="fileInput.click()" />
+                <h1 class="text-2xl font-bold">{{user.firstName}} {{user.lastName}}</h1>
+            </div>
+
+        <div class="card-body">
+            <div class="field p-fluid">
+                <input pInputText id="firstName" type="text" [ngModel]="firstName.value"  (ngModelChange)="firstName.setValue($event)"  />
+                <small>Update your firstname.</small>
+
+            </div>
+            <div class="field p-fluid">
+                <input pInputText id="lastName" type="text" [ngModel]="lastName.value"  (ngModelChange)="lastName.setValue($event)" />
+                <small>Update your lastname.</small>
+
+            </div>
+
+            <div class="field p-fluid">
+                <input pInputText id="phoneNumber" type="text" [ngModel]="phoneNumber.value"  (ngModelChange)="phoneNumber.setValue($event)"  />
+                <small>Enter your phone number.</small>
+
+            </div>
+            <div class="field p-fluid">
+                <input pInputText id="birthday" type="date" [ngModel]="birthday.value"  (ngModelChange)="birthday.setValue($event)"  />
+                <small>Enter your birthday.</small>
+
+            </div>
+            <button pButton pRipple label="Update" class="w-full p-3 text-xl" (click)="updateUser()"></button>
+        </div>
+
+    </div>
+</div>
+</div>

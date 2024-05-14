@@ -1,0 +1,35 @@
+<div class="flex flex-column align-items-center justify-content-center">
+    <div style="border-radius:56px; padding:0.7rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+        <div class="w-full surface-card lg:py-7 px-5 sm:px-8" style="border-radius:53px">
+            <div class="text-center mb-5">
+                <img [src]="'data:image/jpeg;base64,' + reclamation?.userId?.profileImage" height="100" class="mb-3">
+                <h2>{{ reclamation?.userId?.firstName }} {{ reclamation?.userId?.lastName }}</h2>
+            </div>
+
+            <div>
+                <label class="block text-900 text-xl font-medium mb-2">Description : {{ reclamation?.description }}</label>
+
+
+                <label  class="block text-900 font-medium text-xl mb-2">Status : <span [class.customer-badge]="true" [class.status-qualified]="reclamation.status === 'Not Urgent'" [class.status-unqualified]="reclamation.status === 'Urgent'">
+                             {{reclamation.status}}
+                        </span></label>
+
+                <label  class="block text-900 font-medium text-xl mb-2">Reclamation Date : {{ reclamation?.reclamationDate | date: 'MM/dd/yyyy' }}</label>
+
+                <label  class="block text-900 font-medium text-xl mb-2">Result : <span [class.customer-badge]="true" [class.status-qualified]="reclamation.result === 'resolved'" [class.status-unqualified]="reclamation.result === 'Not resolved'">
+                             {{reclamation.result}}
+                        </span></label>
+                <label class="block text-900 font-medium text-xl mb-2"> Preview Screenshot :
+                    <p-tag *ngIf="reclamation?.screenshot" pRipple     (click)="op1.toggle($event)" icon="pi pi-info-circle" severity="success" value="Show" ></p-tag>
+
+                    <p-overlayPanel #op1 [showCloseIcon]="true" [style]="{width: '300px'}" >
+                        <img [src]="'data:image/jpeg;base64,' + reclamation?.screenshot" style="width:100%"/>
+                    </p-overlayPanel>
+                    <p-tag *ngIf="!reclamation?.screenshot" icon="pi pi-info-circle" severity="info" value="Not Available"></p-tag>
+                </label>
+
+                <button pButton pRipple label="Resolve" class="w-full p-3 text-xl" (click)="resolveReclamation(reclamation.id)"></button>
+            </div>
+        </div>
+    </div>
+</div>

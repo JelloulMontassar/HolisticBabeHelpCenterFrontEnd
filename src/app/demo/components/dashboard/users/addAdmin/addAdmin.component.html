@@ -1,0 +1,29 @@
+<div class="card p-fluid" style="width: 50%; margin: auto;">
+<h5 class="card-header text-center">ADD ADMIN</h5>
+<div class="card-body">    <div class="field">
+        <label htmlFor="firstName">First Name</label>
+        <input pInputText id="firstName" type="text" [ngModel]="firstName.value"  (ngModelChange)="firstName.setValue($event)"  />
+    </div>
+    <div class="field">
+        <label htmlFor="lastName">Last Name</label>
+        <input pInputText id="lastName" type="text" [ngModel]="lastName.value"  (ngModelChange)="lastName.setValue($event)" />
+    </div>
+    <div class="field">
+        <label htmlFor="email">Email</label>
+        <input pInputText id="email" type="text" [ngModel]="email.value"  (ngModelChange)="email.setValue($event)" />
+    </div>
+    <div class="field">
+        <label htmlFor="phoneNumber">Phone Number</label>
+        <input pInputText id="phoneNumber" type="text" [ngModel]="phoneNumber.value"  (ngModelChange)="phoneNumber.setValue($event)"  />
+    </div>
+    <div class="field">
+        <label htmlFor="birthday">Birthday</label>
+        <input pInputText id="birthday" type="date" [ngModel]="birthday.value"  (ngModelChange)="birthday.setValue($event)"  />
+    </div>
+    <div class="field">
+        <label htmlFor="password">Password</label>
+        <input pInputText id="password" type="password" [ngModel]="password.value"  (ngModelChange)="password.setValue($event)"  />
+    </div>
+    <button pButton label="Add Admin" (click)="addAdmin()"></button>
+</div>
+</div>
