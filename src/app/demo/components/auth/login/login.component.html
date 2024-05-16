@@ -19,7 +19,7 @@
                             <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
                             <label for="rememberme1">Remember me</label>
                         </div>
-                        <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
+                        <a class="font-medium no-underline ml-2 text-right cursor-pointer" routerLink="/auth/login/forgot" style="color: var(--primary-color)">Forgot password?</a>
                     </div>
                     <button pButton pRipple label="Sign In" class="w-full p-3 text-xl" (click)="onLogin()"></button>
                 </div>

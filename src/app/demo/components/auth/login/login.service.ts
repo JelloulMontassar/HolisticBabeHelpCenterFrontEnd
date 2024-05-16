@@ -62,4 +62,15 @@ export class AuthService {
         }
         return throwError('Something bad happened; please try again later.');
     }
+
+    resetPassword(email: string) {
+        return this.http.get<any>('http://localhost:8080/user/forgot-password/' + email)
+            .pipe(catchError(this.handleError));
+
+    }
+    ConfirmResetPassword(confirm: any) {
+        return this.http.post<any>('http://localhost:8080/user/forgot-password/', confirm)
+            .pipe(catchError(this.handleError));
+
+    }
 }

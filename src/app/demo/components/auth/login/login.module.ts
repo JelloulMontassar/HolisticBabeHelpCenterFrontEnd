@@ -9,6 +9,8 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import {MessagesModule} from "primeng/messages";
 import {MessageModule} from "primeng/message";
+import {ForgotpasswordComponent} from "./forgotpassword.component";
+import {ConfirmComponent} from "./confirm.component";
 
 @NgModule({
     imports: [
@@ -22,6 +24,6 @@ import {MessageModule} from "primeng/message";
         MessagesModule,
         MessageModule
     ],
-    declarations: [LoginComponent]
+    declarations: [LoginComponent,ForgotpasswordComponent,ConfirmComponent]
 })
 export class LoginModule { }
