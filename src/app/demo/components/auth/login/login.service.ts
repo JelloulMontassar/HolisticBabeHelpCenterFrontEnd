@@ -73,4 +73,7 @@ export class AuthService {
             .pipe(catchError(this.handleError));
 
     }
+    getOnlineUsers() {
+        return this.http.get<any>(`http://localhost:8080/user/onlineUsers`);
+    }
 }

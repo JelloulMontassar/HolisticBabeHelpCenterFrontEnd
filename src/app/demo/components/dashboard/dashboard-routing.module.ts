@@ -6,6 +6,7 @@ import {ReclamationsComponent} from "./reclamations/reclamations.component";
 import {ReclamationDetailsComponent} from "./reclamations/reclamationDetails/reclamationDetails.component";
 import {AddAdminComponent} from "./users/addAdmin/addAdmin.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {ChatComponent} from "./chat/chat.component";
 
 @NgModule({
     imports: [RouterModule.forChild([
@@ -16,7 +17,10 @@ import {ProfileComponent} from "./profile/profile.component";
 
 
         { path: 'reclamations', component: ReclamationsComponent },
-        { path: 'reclamations/:reclamationId', component: ReclamationDetailsComponent }
+        { path: 'reclamations/:reclamationId', component: ReclamationDetailsComponent },
+        { path: 'chat', component: ChatComponent }
+
+
 
 
 

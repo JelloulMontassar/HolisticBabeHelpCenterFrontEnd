@@ -35,6 +35,12 @@ export class AppMenuComponent implements OnInit {
                     { label: 'RECLAMATIONS', icon: 'pi pi-flag-fill', routerLink: ['/admin/reclamations'] },
                 ]
             },
+            {
+                label: 'Customer Support',
+                items: [
+                    { label: 'Chat', icon: 'pi pi-fw pi-comment', routerLink: ['/admin/chat'] }
+                ]
+            },
 
         ];
     }

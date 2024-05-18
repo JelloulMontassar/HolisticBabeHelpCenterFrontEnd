@@ -27,6 +27,7 @@ import {CheckboxModule} from "primeng/checkbox";
 import {PasswordModule} from "primeng/password";
 import {AddAdminComponent} from "./users/addAdmin/addAdmin.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {ChatComponent} from "./chat/chat.component";
 
 @NgModule({
     imports: [
@@ -60,7 +61,8 @@ import {ProfileComponent} from "./profile/profile.component";
         ReclamationsComponent,
         ReclamationDetailsComponent,
         AddAdminComponent,
-        ProfileComponent
+        ProfileComponent,
+        ChatComponent
     ]
 })
 export class DashboardModule { }
