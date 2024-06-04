@@ -30,6 +30,8 @@ import {ForumsComponent} from "./forum/forum.component";
 import {HeaderComponent} from "./header/header.component";
 import {HomeComponent} from "./home/home.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
+import {FaqComponent} from "./faq/faq.component";
+import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
 
 @NgModule({
     declarations: [AppComponent,
@@ -38,7 +40,7 @@ import {PostDetailsComponent} from "./post-details/post-details.component";
         CategoriesComponent,
         PostsComponent,
         ThreadsComponent,
-        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent
+        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent,FaqComponent,FaqAdminComponent
 
 
     ],

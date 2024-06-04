@@ -1,0 +1,12 @@
+<app-header-front></app-header-front>
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+    <ul>
+        <li *ngFor="let faq of faqs">
+            <details>
+                <summary>{{ faq.question }}</summary>
+                <p>{{ faq.answer }}</p>
+            </details>
+        </li>
+    </ul>
+</div>

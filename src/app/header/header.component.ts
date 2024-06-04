@@ -29,7 +29,7 @@ export class HeaderComponent {
     }
 
     Register() {
-        this.router.navigate(['/auth/register']);
+        this.router.navigate(['/auth/login/register']);
     }
 
     @HostListener('document:click', ['$event'])

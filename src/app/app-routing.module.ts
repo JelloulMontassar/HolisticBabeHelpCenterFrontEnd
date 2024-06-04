@@ -9,6 +9,8 @@ import {PostsComponent} from "./posts/posts.component";
 import {ForumsComponent} from "./forum/forum.component";
 import {HomeComponent} from "./home/home.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
+import {FaqComponent} from "./faq/faq.component";
+import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
 
 @NgModule({
     imports: [
@@ -23,6 +25,7 @@ import {PostDetailsComponent} from "./post-details/post-details.component";
                     { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
                     { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
                     ,{path : "categories", component: CategoriesComponent},
+                    {path : "faq", component: FaqAdminComponent},
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
@@ -31,7 +34,7 @@ import {PostDetailsComponent} from "./post-details/post-details.component";
             {path : 'forum/threads/:categoryId', component: ThreadsComponent},
             {path : 'forum/thread/posts/:threadId', component: PostsComponent},
             {path : 'forum/thread/posts/post/:id', component: PostDetailsComponent},
-
+            {path :'faq' , component:FaqComponent},
             {path:'forum',component: ForumsComponent},
             {path:'posts', component: PostsComponent},
             { path: 'notfound', component: NotfoundComponent },

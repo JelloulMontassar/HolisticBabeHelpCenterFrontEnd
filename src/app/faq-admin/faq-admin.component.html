@@ -1,0 +1,16 @@
+<div class="card p-fluid" style="width: 50%; margin: auto;">
+    <h5 class="card-header text-center">ADD FAQ</h5>
+    <div class="card-body">
+        <form [formGroup]="faqForm" (ngSubmit)="addFaq()">
+            <div class="field">
+                <label htmlFor="question">Question</label>
+                <input pInputText id="question" type="text" formControlName="question" />
+            </div>
+            <div class="field">
+                <label htmlFor="answer">Answer</label>
+                <textarea pInputTextarea id="answer" rows="5" formControlName="answer"></textarea>
+            </div>
+            <button pButton label="Add FAQ"></button>
+        </form>
+    </div>
+</div>
