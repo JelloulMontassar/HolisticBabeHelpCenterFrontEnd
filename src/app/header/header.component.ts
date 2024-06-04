@@ -9,9 +9,13 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent {
     menuVisible: boolean = false;
-
+    loggedIn = false;
     constructor(private router: Router) {}
-
+    ngOnInit() {
+        if (sessionStorage.getItem("accessToken")) {
+            this.loggedIn = true;
+        }
+    }
     toggleMenu() {
         this.menuVisible = !this.menuVisible;
     }

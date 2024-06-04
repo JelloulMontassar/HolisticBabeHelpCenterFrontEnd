@@ -13,17 +13,15 @@
                 <tr>
                     <th>Author</th>
                     <th>Thread</th>
-                    <th>Category</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-thread>
-                <tr>
+                <tr class="p-cursor-pointer" (click)="getThreadPosts(thread.id)">
                     <td>
                         <img [src]="'data:image/jpeg;base64,' + thread?.author.profileImage" width="32" height="32" style="vertical-align: middle; border-radius: 50%;" class="p-mr-2"/>
                         {{thread.author.firstName}} {{thread.author.lastName}}
                     </td>
-                    <td (click)="getThreadPosts(thread.id)">{{thread.title}}</td>
-                    <td>{{thread.categoryId}}</td>
+                    <td >{{thread.title}}</td>
                 </tr>
             </ng-template>
         </p-table>

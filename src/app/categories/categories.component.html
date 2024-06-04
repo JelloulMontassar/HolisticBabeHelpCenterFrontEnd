@@ -27,14 +27,12 @@
             <ng-template pTemplate="header" class="text-center">
                 <tr>
                     <th style="width:500px">Category Name</th>
-                    <th style="width:200px">Number of Threads</th>
                     <th style="width:200px">Action</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-category>
                 <tr>
                     <td>{{category.name}}</td>
-                    <td class="text-center">{{category.threads.length}}</td>
                     <td class="text-center">
                         <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-mr-2" (click)="viewCategory(category.id)"></button>
                     </td>

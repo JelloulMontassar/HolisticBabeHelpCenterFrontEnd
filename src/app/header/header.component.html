@@ -10,9 +10,9 @@
             <!-- Add navigation items here if needed -->
         </ul>
         <div class="buttons flex justify-content-between lg:block border-top-1 lg:border-top-none surface-border py-3 lg:py-0 mt-3 lg:mt-0">
-            <button pButton pRipple label="Forum" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Forum()"></button>
-            <button pButton pRipple label="Login" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Login()"></button>
-            <button pButton pRipple label="Register" class="border-none ml-5 font-light line-height-2 bg-blue-500 text-white" (click)="Register()"></button>
+            <button *ngIf="!loggedIn" pButton pRipple label="Forum" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Forum()"></button>
+            <button *ngIf="loggedIn" pButton pRipple label="Login" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Login()"></button>
+            <button *ngIf="loggedIn" pButton pRipple label="Register" class="border-none ml-5 font-light line-height-2 bg-blue-500 text-white" (click)="Register()"></button>
         </div>
     </div>
 </div>

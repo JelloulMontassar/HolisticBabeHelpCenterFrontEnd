@@ -7,7 +7,27 @@
                 <h3>{{ post?.author?.firstName }} {{ post?.author?.lastName }}</h3>
                 <p>{{ post?.content }}</p>
                 <p class="p-text-secondary">{{ post?.createdAt | date:'medium' }}</p>
+                <h3 class="p-text-center">Comments</h3>
+
+                <div *ngFor="let comment of post?.comments">
+                    <h4>{{ comment?.author?.firstName }} {{ comment?.author?.lastName }}</h4>
+                    <p>{{ comment?.content }}</p>
+                    <p class="p-text-secondary">{{ comment?.createdAt | date:'medium' }}</p>
+                </div>
             </div>
         </div>
+
+        <h3 class="p-text-center">Add Comment</h3>
+        <form [formGroup]="commentForm" (ngSubmit)="addComment()" class="p-fluid">
+            <div class="p-field p-grid">
+                <label for="content" class="p-col-12 p-md-2">Comment</label>
+                <div class="p-col-12 p-md-10">
+                    <textarea id="content" pInputTextarea formControlName="content" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="p-d-flex p-jc-end">
+                <button type="submit" pButton label="Post Comment" icon="pi pi-check"></button>
+            </div>
+        </form>
     </div>
 </div>

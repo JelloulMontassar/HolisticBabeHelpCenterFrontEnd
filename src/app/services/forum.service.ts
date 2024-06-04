@@ -64,4 +64,10 @@ export class ForumService {
 
         return this.http.get<any>(`${this.baseUrl}/posts/${id}`, { headers });
     }
+
+    addComment(id, commentContent: any) {
+        const headers = this.getAuthHeaders();
+        return this.http.post(`${this.baseUrl}/posts/${id}/comments`, { content: commentContent }, { headers });
+
+    }
 }

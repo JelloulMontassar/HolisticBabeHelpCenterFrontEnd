@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit {
     posts: any[] = [];
     loading: boolean = true;
     postForm: FormGroup;
+    displayModal: boolean = false;
 
     constructor(private forumService: ForumService, private fb: FormBuilder, private  route: ActivatedRoute,public router: Router ) {
         this.postForm = this.fb.group({
@@ -48,6 +49,7 @@ export class PostsComponent implements OnInit {
                 }
             );
         }
+        this.displayModal = false;
     }
 
     getPost(id:number) {

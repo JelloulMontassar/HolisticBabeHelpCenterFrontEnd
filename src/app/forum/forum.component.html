@@ -1,33 +1,18 @@
 <app-header-front></app-header-front>
 <div class="container p-m-4">
-    <h1 class="title p-text-center">Forum</h1>
-    <div class="search-bar p-d-flex p-jc-center p-mb-3">
-        <span class="p-input-icon-right p-fluid">
-            <i class="pi pi-search"></i>
-            <input pInputText type="text" placeholder="Type to search" [(ngModel)]="searchQuery" (input)="filterForums()" class="search-input p-inputtext-lg"/>
-        </span>
+    <h1 class="title p-text-center">Select Category</h1>
+    <p class="subtitle p-text-center">Select the category where you want to add these records.</p>
+
+    <div class="forum-list p-d-flex p-jc-center p-ai-center p-flex-wrap">
+        <div *ngFor="let forum of filteredForums" class="forum-card p-shadow-2 p-m-2 p-p-3 p-d-flex p-flex-column p-ai-center" [ngClass]="{'selected': selectedForum?.id === forum.id}" (click)="selectForum(forum)">
+            <div class="forum-image-container p-mb-3">
+                <img src="https://cdn-icons-png.freepik.com/512/8428/8428362.png" class="forum-image" alt="{{ forum.name }}">
+            </div>
+            <h3 class="p-text-center p-m-0">{{ forum.name }}</h3>
+            <button pButton label="Select" class="p-button-outlined p-mt-3 select-button" [disabled]="selectedForum?.id === forum.id"></button>
+        </div>
     </div>
-    <div class="forum-list p-d-flex p-jc-center">
-        <table class="p-datatable p-datatable-striped p-shadow-3">
-            <thead>
-            <tr>
-                <th>Forum</th>
-                <th>Number Of Threads</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let forum of filteredForums" class="p-selectable-row">
-                <td>
-                    <div class="forum-info p-d-flex p-ai-center">
-                        <i class="pi pi-folder p-mr-2" style="font-size: 1.5em;"></i>
-                        <div class="forum-details">
-                            <h3 class="p-text-bold p-m-0 p-cursor-pointer" (click)="getCategory(forum.id)">{{ forum.name }}</h3>
-                        </div>
-                    </div>
-                </td>
-                <td>{{ forum.threads.length }}</td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="p-d-flex p-jc-center p-mt-4">
+        <button pButton label="Continue" class="p-button-primary continue-button" [disabled]="!selectedForum" (click)="continue()"></button>
     </div>
 </div>
