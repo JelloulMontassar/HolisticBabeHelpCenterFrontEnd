@@ -1,0 +1,18 @@
+<div class="header surface-0">
+    <a class="flex align-items-center" href="#">
+        <img src="https://www.holistic-babe.fr/wp-content/uploads/2024/03/cropped-cropped-Logo-holistic-babe-glow-up.png" alt="Sakai Logo">
+    </a>
+    <a class="menu-icon text-700" (click)="toggleMenu()">
+        <i class="pi pi-bars text-4xl"></i>
+    </a>
+    <div [class.show]="menuVisible" id="menu" class="menu align-items-center surface-0 flex-grow-1 justify-content-between lg:flex absolute lg:static w-full left-0 px-6 lg:px-0 z-2">
+        <ul class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
+            <!-- Add navigation items here if needed -->
+        </ul>
+        <div class="buttons flex justify-content-between lg:block border-top-1 lg:border-top-none surface-border py-3 lg:py-0 mt-3 lg:mt-0">
+            <button pButton pRipple label="Forum" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Forum()"></button>
+            <button pButton pRipple label="Login" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Login()"></button>
+            <button pButton pRipple label="Register" class="border-none ml-5 font-light line-height-2 bg-blue-500 text-white" (click)="Register()"></button>
+        </div>
+    </div>
+</div>

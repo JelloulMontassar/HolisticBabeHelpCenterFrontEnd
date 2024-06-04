@@ -9,7 +9,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         CommonModule,
         AuthRoutingModule,
         SweetAlert2Module,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+
     ]
 })
 export class AuthModule { }

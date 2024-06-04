@@ -1,0 +1,19 @@
+<div class="col-12">
+    <div class="card">
+        <h2>Posts</h2>
+        <div *ngFor="let post of posts">
+            <p>{{ post.content }}</p>
+        </div>
+        <form [formGroup]="postForm" (ngSubmit)="addPost()" class="p-fluid">
+            <div class="p-field p-grid">
+                <label for="content" class="p-col-12 p-md-2">Content</label>
+                <div class="p-col-12 p-md-10">
+                    <textarea id="content" pInputTextarea formControlName="content" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="p-d-flex p-jc-end">
+                <button type="submit" pButton label="Post" icon="pi pi-check"></button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,3 +1,322 @@
+<style>
+    /* Add this to your CSS file */
+
+.surface-0 {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+#home {
+    font-family: Arial, sans-serif;
+}
+
+#hero {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+#hero button {
+    background-color: #0084ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #006cb3;
+}
+
+#features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#features .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#features .col-12 h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#features .col-12 h5 {
+    font-size: 1.2em;
+    color: #666;
+}
+
+@media screen and (min-width: 768px) {
+    #features .col-12 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Container Styles */
+    .surface-0 {
+        background-color: #fff;
+
+
+    }
+
+    .landing-wrapper {
+        padding: 20px;
+    }
+
+    /* Hero Section */
+    #hero {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        radial-gradient(77.36% 256.97% at 77.36% 57.52%, #EEEFAF 0%, #C3E3FA 100%);
+        clip-path: ellipse(150% 87% at 93% 13%);
+        padding: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #333;
+        margin: 0 0 20px 0;
+    }
+
+    #hero button {
+        background-color: #0084ff;
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease;
+    }
+
+    #hero button:hover {
+        background-color: #006cb3;
+    }
+
+    #hero img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    /* Features Section */
+    #features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    #features .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    #features .col-12 h2 {
+        font-size: 2em;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    #features .feature-card {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .feature-card .card-content {
+        padding: 20px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgba(145,226,237,0.2), rgba(251, 199, 145, 0.2)),
+        linear-gradient(180deg, rgba(253, 228, 165, 0.2), rgba(172, 180, 223, 0.2));
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card .card-content:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-card .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .feature-card h5 {
+        font-size: 1.2em;
+        color: #666;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+        #features .feature-card {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    /* Additional Styles */
+    .cta {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .cta h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .cta button {
+        background-color: #0084ff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+        background-color: #006cb3;
+    }
+
+    .forum-list {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    .forum-list table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .forum-list th, .forum-list td {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .forum-list th {
+        background-color: #f0f0f0;
+    }
+
+    .forum-list td img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    .forum-list .last-post {
+        display: flex;
+        align-items: center;
+    }
+
+    .forum-list .last-post div {
+        margin-left: 10px;
+    }
+
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .footer .footer-logo img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+
+    .footer .footer-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer .footer-column {
+        flex: 0 0 24%;
+        max-width: 24%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .footer .footer-column h4 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .footer .footer-column a {
+        display: block;
+        color: #fff;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .footer .footer-column a:hover {
+        color: #0084ff;
+    }
+
+    @media screen and (max-width: 768px) {
+        .footer .footer-column {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 10px;
+        }
+    }}
+
+</style>
+<app-header-front></app-header-front>
 <div class="surface-0 flex justify-content-center">
     <div id="home" class="landing-wrapper overflow-hidden">
         <div id="hero" class="flex flex-column pt-4 px-4 lg:px-8 overflow-hidden"

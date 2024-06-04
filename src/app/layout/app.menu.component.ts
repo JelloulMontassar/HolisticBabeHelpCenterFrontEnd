@@ -21,6 +21,12 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'Forum',
+                items: [
+                    { label: 'Categories', icon: 'pi pi-list', routerLink: ['/admin/categories'] }
+                ]
+            },
+            {
                 label: 'MANAGE USERS',
                 items: [
 

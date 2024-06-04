@@ -1,0 +1,31 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="flex flex-column align-items-center justify-content-center">
+        <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+            <div class="w-full surface-card py-8 px-5 sm:px-12" style="border-radius:53px">
+                <div class="text-center mb-5">
+                    <img src="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg" alt="Image" height="150" class="mb-3">
+                </div>
+
+                <div>
+
+                    <label for="description" class="block text-900 text-xl font-medium mb-2">Description</label>
+                    <textarea id="description" [(ngModel)]="description.value" placeholder="Enter description" rows="5" pInputTextarea class="w-full md:w-30rem mb-5" style="padding:1rem"></textarea>
+<br>
+                    <div>
+                        <label for="status" class="block text-900 text-xl font-medium mb-2">Status</label>
+                        <p-dropdown id="status" [options]="statusOptions" [(ngModel)]="status.value" placeholder="Select Status" class="w-full md:w-400rem mb-12"></p-dropdown>
+                        <br></div>
+                    <label  class="block text-900 text-xl font-medium mb-2">Screenshot</label>
+                    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+                                  [multiple]="true" accept="image/*" [maxFileSize]="1000000">
+
+                    </p-fileUpload>
+
+
+
+                    <button pButton pRipple label="Submit" class="w-full p-3 text-xl" (click)="onSubmit()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<app-header-front></app-header-front>
+<div class="container">
+    <h1 class="title">Forum</h1>
+    <div class="search-bar">
+    <span class="p-input-icon-right">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text" placeholder="Type to search" [(ngModel)]="searchQuery" (input)="filterForums()" class="search-input"/>
+    </span>
+    </div>
+    <div class="forum-list">
+        <table>
+            <thead>
+            <tr>
+                <th>Forum</th>
+                <th>Number Of Threads</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let forum of filteredForums">
+                <td>
+                    <div class="forum-info">
+                        <i class="pi pi-folder"></i>
+                        <div class="forum-details">
+                            <h3>{{ forum.name }}</h3>
+                        </div>
+                    </div>
+                </td>
+                <td>{{ forum.threads.length }}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
