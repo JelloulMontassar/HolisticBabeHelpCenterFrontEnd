@@ -62,4 +62,8 @@ export class ThreadsComponent implements OnInit {
             );
         }
     }
+
+    getThreadPosts(threadId: number) {
+        this.router.navigate(['/forum/thread/posts/',threadId]);
+    }
 }

@@ -8,6 +8,7 @@ import {ThreadsComponent} from "./threads/threads.component";
 import {PostsComponent} from "./posts/posts.component";
 import {ForumsComponent} from "./forum/forum.component";
 import {HomeComponent} from "./home/home.component";
+import {PostDetailsComponent} from "./post-details/post-details.component";
 
 @NgModule({
     imports: [
@@ -28,6 +29,9 @@ import {HomeComponent} from "./home/home.component";
             { path: 'home', component : HomeComponent},
             { path: 'sendreclamation', component: SendreclamationComponent},
             {path : 'forum/threads/:categoryId', component: ThreadsComponent},
+            {path : 'forum/thread/posts/:threadId', component: PostsComponent},
+            {path : 'forum/thread/posts/post/:id', component: PostDetailsComponent},
+
             {path:'forum',component: ForumsComponent},
             {path:'posts', component: PostsComponent},
             { path: 'notfound', component: NotfoundComponent },

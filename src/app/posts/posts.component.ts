@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ForumService } from '../services/forum.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-posts',
@@ -9,18 +10,20 @@ import Swal from 'sweetalert2';
     styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-    @Input() threadId!: number;
+    threadId!: number;
     posts: any[] = [];
     loading: boolean = true;
     postForm: FormGroup;
 
-    constructor(private forumService: ForumService, private fb: FormBuilder) {
+    constructor(private forumService: ForumService, private fb: FormBuilder, private  route: ActivatedRoute,public router: Router ) {
         this.postForm = this.fb.group({
             content: ['', Validators.required]
         });
     }
 
     ngOnInit(): void {
+        this.threadId = this.route.snapshot.params['threadId'];
+
         this.refreshPosts();
     }
 
@@ -45,5 +48,10 @@ export class PostsComponent implements OnInit {
                 }
             );
         }
+    }
+
+    getPost(id:number) {
+        this.router.navigate(['/forum/thread/posts/post', id]);
+
     }
 }

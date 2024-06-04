@@ -29,6 +29,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import {ForumsComponent} from "./forum/forum.component";
 import {HeaderComponent} from "./header/header.component";
 import {HomeComponent} from "./home/home.component";
+import {PostDetailsComponent} from "./post-details/post-details.component";
 
 @NgModule({
     declarations: [AppComponent,
@@ -37,7 +38,7 @@ import {HomeComponent} from "./home/home.component";
         CategoriesComponent,
         PostsComponent,
         ThreadsComponent,
-        ForumsComponent, HeaderComponent,HomeComponent
+        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent
 
 
     ],

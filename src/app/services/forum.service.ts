@@ -53,10 +53,15 @@ export class ForumService {
 
     createPost(threadId: number, content: string): Observable<any> {
         const headers = this.getAuthHeaders();
-        return this.http.post<any>(`${this.baseUrl}/posts`, { threadId, content}, { headers });
+        return this.http.post<any>(`${this.baseUrl}/posts/${threadId}`, {content}, { headers });
     }
     getPosts(threadId: number): Observable<any[]> {
         const headers = this.getAuthHeaders();
         return this.http.get<any[]>(`${this.baseUrl}/threads/${threadId}/posts`, { headers });
+    }
+    getPost(id: number): Observable<any> {
+        const headers = this.getAuthHeaders();
+
+        return this.http.get<any>(`${this.baseUrl}/posts/${id}`, { headers });
     }
 }
