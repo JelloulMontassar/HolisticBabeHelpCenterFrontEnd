@@ -36,15 +36,20 @@ export class ForumService {
         });
     }
 
-    getThreads(): Observable<any[]> {
+    getThreads(categoryId :number): Observable<any[]> {
         const headers = this.getAuthHeaders();
-        return this.http.get<any[]>(`${this.baseUrl}/threads`, { headers });
+        return this.http.get<any[]>(`${this.baseUrl}/categories/${categoryId}/threads`, { headers });
     }
 
     createThread(title: string, categoryId: number): Observable<any> {
-        const headers = this.getAuthHeaders();
-        return this.http.post<any>(`${this.baseUrl}/threads`, { title, categoryId }, { headers });
+    const headers = this.getAuthHeaders();
+    return this.http.post<any>(`${this.baseUrl}/threads/${categoryId}`,
+        { "title" : title,
+
+        },
+        { headers });
     }
+
 
     createPost(threadId: number, content: string): Observable<any> {
         const headers = this.getAuthHeaders();

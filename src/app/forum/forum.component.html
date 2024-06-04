@@ -1,33 +1,31 @@
 <app-header-front></app-header-front>
-<div class="container">
-    <h1 class="title">Forum</h1>
-    <div class="search-bar">
-    <span class="p-input-icon-right">
-      <i class="pi pi-search"></i>
-      <input pInputText type="text" placeholder="Type to search" [(ngModel)]="searchQuery" (input)="filterForums()" class="search-input"/>
-    </span>
+<div class="container p-m-4">
+    <h1 class="title p-text-center">Forum</h1>
+    <div class="search-bar p-d-flex p-jc-center p-mb-3">
+        <span class="p-input-icon-right p-fluid">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" placeholder="Type to search" [(ngModel)]="searchQuery" (input)="filterForums()" class="search-input p-inputtext-lg"/>
+        </span>
     </div>
-    <div class="forum-list">
-        <table>
+    <div class="forum-list p-d-flex p-jc-center">
+        <table class="p-datatable p-datatable-striped p-shadow-3">
             <thead>
             <tr>
                 <th>Forum</th>
                 <th>Number Of Threads</th>
-
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let forum of filteredForums">
+            <tr *ngFor="let forum of filteredForums" class="p-selectable-row">
                 <td>
-                    <div class="forum-info">
-                        <i class="pi pi-folder"></i>
+                    <div class="forum-info p-d-flex p-ai-center">
+                        <i class="pi pi-folder p-mr-2" style="font-size: 1.5em;"></i>
                         <div class="forum-details">
-                            <h3>{{ forum.name }}</h3>
+                            <h3 class="p-text-bold p-m-0 p-cursor-pointer" (click)="getCategory(forum.id)">{{ forum.name }}</h3>
                         </div>
                     </div>
                 </td>
                 <td>{{ forum.threads.length }}</td>
-
             </tr>
             </tbody>
         </table>

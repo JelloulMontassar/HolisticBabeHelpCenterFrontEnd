@@ -21,24 +21,26 @@ export class ThreadsComponent implements OnInit {
     constructor(private forumService: ForumService, private fb: FormBuilder, public router: Router, private route: ActivatedRoute) {
         this.threadForm = this.fb.group({
             title: ['', Validators.required],
-            categoryId: ['', Validators.required]
+
         });
     }
 
     ngOnInit(): void {
         this.categoryId = this.route.snapshot.params['categoryId'];
-        this.forumService.getCategory(this.categoryId).subscribe(category => {
-            this.category = category;
+        this.forumService.getThreads(this.categoryId).subscribe(threads => {
+            this.threads = threads;
+            this.loading = false
         });
-
         this.refreshThreads();
     }
 
     refreshThreads() {
-        this.forumService.getThreads().subscribe(threads => {
+
+        this.forumService.getThreads(this.categoryId).subscribe(threads => {
             this.threads = threads;
         });
     }
+
 
     addThread() {
         this.threadForm.reset();
@@ -48,7 +50,7 @@ export class ThreadsComponent implements OnInit {
     onSave() {
         if (this.threadForm.valid) {
             const threadData = this.threadForm.value;
-            this.forumService.createThread(threadData.title, threadData.categoryId).subscribe(
+            this.forumService.createThread(threadData.title, this.categoryId).subscribe(
                 () => {
                     this.displayModal = false;
                     this.refreshThreads();

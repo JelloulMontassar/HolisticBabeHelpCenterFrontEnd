@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from '../services/forum.service';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-forums',
@@ -11,7 +12,7 @@ export class ForumsComponent implements OnInit {
     filteredForums: any[] = [];
     searchQuery: string = '';
 
-    constructor(private forumService: ForumService) { }
+    constructor(private forumService: ForumService, public router: Router) { }
 
     ngOnInit(): void {
         this.forumService.getCategories().subscribe(forums => {
@@ -19,7 +20,9 @@ export class ForumsComponent implements OnInit {
             this.filteredForums = forums;
         });
     }
-
+    getCategory(categoryId: number): any {
+        this.router.navigate(['/forum/threads/', categoryId]);
+    }
     filterForums(): void {
         this.filteredForums = this.forums.filter(forum =>
             forum.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||

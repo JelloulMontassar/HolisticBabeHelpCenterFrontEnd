@@ -1,0 +1,82 @@
+.forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007ad9;
+    padding: 10px 20px;
+    color: white;
+}
+
+.forum-header-title {
+    display: flex;
+    align-items: center;
+}
+
+.forum-header-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.forum-header-links {
+    margin-left: 20px;
+    font-size: 0.875rem;
+}
+
+.forum-header-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.forum-header-links a:hover {
+    text-decoration: underline;
+}
+
+.card {
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.p-button-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.p-button-success:hover {
+    background-color: #218838;
+}
+
+.p-datatable .p-datatable-header {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    text-align: center;
+}
+
+.p-datatable td {
+    vertical-align: middle;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.p-dialog .p-dialog-header {
+    background-color: #007ad9;
+    color: white;
+}
+
+.p-dialog .p-dialog-footer {
+    background-color: #f4f4f4;
+}
+
+.p-field {
+    margin-bottom: 1rem;
+}
+
+.p-field label {
+    font-weight: bold;
+}

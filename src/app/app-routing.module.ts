@@ -27,7 +27,7 @@ import {HomeComponent} from "./home/home.component";
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
             { path: 'home', component : HomeComponent},
             { path: 'sendreclamation', component: SendreclamationComponent},
-            {path : 'threads/:categoryId', component: ThreadsComponent},
+            {path : 'forum/threads/:categoryId', component: ThreadsComponent},
             {path:'forum',component: ForumsComponent},
             {path:'posts', component: PostsComponent},
             { path: 'notfound', component: NotfoundComponent },
