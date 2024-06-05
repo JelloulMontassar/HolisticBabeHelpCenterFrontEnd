@@ -6,6 +6,7 @@ import {Message} from "./models/Message";
 import {Observable} from "rxjs";
 import {AuthService} from "../../auth/login/login.service";
 @Component({
+    selector: 'app-chat',
     templateUrl: './chat.component.html',
 })
 export class ChatComponent implements OnInit, AfterViewInit {

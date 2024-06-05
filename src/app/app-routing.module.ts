@@ -11,6 +11,8 @@ import {HomeComponent} from "./home/home.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
 import {FaqComponent} from "./faq/faq.component";
 import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
+import {ProfileUserComponent} from "./profile-user/profile-user.component";
+import {ChatUserComponent} from "./chat-user/chat-user.component";
 
 @NgModule({
     imports: [
@@ -31,6 +33,8 @@ import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
             { path: 'home', component : HomeComponent},
             { path: 'sendreclamation', component: SendreclamationComponent},
+            {path : "chat" , component : ChatUserComponent},
+            { path: 'user/profile', component: ProfileUserComponent},
             {path : 'forum/threads/:categoryId', component: ThreadsComponent},
             {path : 'forum/thread/posts/:threadId', component: PostsComponent},
             {path : 'forum/thread/posts/post/:id', component: PostDetailsComponent},

@@ -5,6 +5,7 @@ import {FormControl, Validators} from "@angular/forms";
 
 
 @Component({
+    selector: 'app-profile',
     templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit {

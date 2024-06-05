@@ -1,18 +1,133 @@
-<div class="header surface-0">
-    <a class="flex align-items-center" href="#">
-        <img src="https://www.holistic-babe.fr/wp-content/uploads/2024/03/cropped-cropped-Logo-holistic-babe-glow-up.png" alt="Sakai Logo">
+<style>
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .custom-dropdown {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 10px;
+        width: 130px;
+        z-index: 1;
+    }
+    .custom-dropdown div {
+        padding: 10px;
+        border-bottom: 1px solid #dee2e6;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-dropdown div:hover {
+        background-color: #e9ecef;
+    }
+
+    .custom-dropdown div:last-child {
+        border-bottom: none;
+    }
+
+    .custom-dropdown i {
+        margin-right: 10px;
+    }
+    .p-badge {
+        display: block;
+    }
+    .notification-dropdown {
+        position: absolute;
+        top: 60px;
+        right:10px;
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 10px;
+        width: 300px;
+        z-index: 1;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .notification-dropdown div {
+        padding: 5px 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .notification-dropdown div:last-child {
+        border-bottom: none;
+    }
+    .no-notifications {
+        padding: 10px;
+        text-align: center;
+        color: #999;
+    }
+
+    .dropdown-footer {
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+
+    .dropdown-footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .dropdown-header {
+        padding: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .notification-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<div class="layout-topbar">
+
+    <a class="layout-topbar-logo" routerLink="/home">
+        <img src="https://www.holistic-babe.fr/wp-content/uploads/2024/03/cropped-cropped-Logo-holistic-babe-glow-up.png" alt="logo">
     </a>
-    <a class="menu-icon text-700" (click)="toggleMenu()">
-        <i class="pi pi-bars text-4xl"></i>
-    </a>
-    <div [class.show]="menuVisible" id="menu" class="menu align-items-center surface-0 flex-grow-1 justify-content-between lg:flex absolute lg:static w-full left-0 px-6 lg:px-0 z-2">
-        <ul class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
-            <!-- Add navigation items here if needed -->
-        </ul>
-        <div class="buttons flex justify-content-between lg:block border-top-1 lg:border-top-none surface-border py-3 lg:py-0 mt-3 lg:mt-0">
-            <button  pButton pRipple label="Forum" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Forum()"></button>
-            <button pButton pRipple label="Login" class="text-button border-none font-light line-height-2 text-blue-500" (click)="Login()"></button>
-            <button  pButton pRipple label="Register" class="border-none ml-5 font-light line-height-2 bg-blue-500 text-white" (click)="Register()"></button>
-        </div>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+        <button *ngIf="loggedIn" class="p-link layout-topbar-button" (click)="myProfile()">
+            <img [src]="'data:image/jpeg;base64,' + profileData?.profileImage" alt="Profile Image" class="profile-image">
+            <span>Profile</span>
+        </button>
+        <button *ngIf="loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-list" (click)="Forum()"></i>
+        </button>
+        <button *ngIf="!loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-user-plus" (click)="Register()"></i>
+        </button>
+        <button *ngIf="!loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-sign-in" (click)="Login()"></i>
+            <span>Settings</span>
+        </button>
+        <button *ngIf="loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-send" (click)="SendReclamation()"></i>
+            <span>Settings</span>
+        </button>
+        <button *ngIf="loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-inbox" (click)="Chat()"></i>
+            <span>Settings</span>
+        </button>
+        <button *ngIf="loggedIn" class="p-link layout-topbar-button" >
+            <i class="pi pi-sign-out" (click)="logout()"></i>
+            <span>Settings</span>
+        </button>
+
     </div>
 </div>

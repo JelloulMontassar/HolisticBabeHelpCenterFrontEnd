@@ -11,6 +11,12 @@ import {AppModule} from "../app.module";
 })
 export class HomeComponent {
     constructor(public layoutService: LayoutService, public router: Router) { }
+    searchQuery: string = '';
+
+    searchArticles() {
+        console.log('Searching for articles with query:', this.searchQuery);
+        // Implement your search logic here
+    }
     Login() {
         this.router.navigate(['/auth/login']);
 

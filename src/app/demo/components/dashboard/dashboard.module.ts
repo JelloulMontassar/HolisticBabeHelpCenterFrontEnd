@@ -55,6 +55,10 @@ import {ChatComponent} from "./chat/chat.component";
         PasswordModule,
 
     ],
+    exports: [
+        ProfileComponent,
+        ChatComponent
+    ],
     declarations: [
         DashboardComponent,
         UsersComponent,

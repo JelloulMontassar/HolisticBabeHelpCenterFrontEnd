@@ -32,6 +32,9 @@ import {HomeComponent} from "./home/home.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
 import {FaqComponent} from "./faq/faq.component";
 import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
+import {ProfileUserComponent} from "./profile-user/profile-user.component";
+import {DashboardModule} from "./demo/components/dashboard/dashboard.module";
+import {ChatUserComponent} from "./chat-user/chat-user.component";
 
 @NgModule({
     declarations: [AppComponent,
@@ -40,7 +43,7 @@ import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
         CategoriesComponent,
         PostsComponent,
         ThreadsComponent,
-        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent,FaqComponent,FaqAdminComponent
+        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent,FaqComponent,FaqAdminComponent,ProfileUserComponent,ChatUserComponent
 
 
     ],
@@ -52,7 +55,7 @@ import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
         ButtonModule,
         RippleModule, FileUploadModule, TableModule, DialogModule,
         ReactiveFormsModule,
-        InputTextModule,
+        InputTextModule, DashboardModule,
     ],
 
     providers: [

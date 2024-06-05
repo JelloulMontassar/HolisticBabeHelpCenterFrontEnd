@@ -1,6 +1,12 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, HostListener} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, ViewChild} from '@angular/core';
+import { Router } from "@angular/router";
+import {AuthService} from "../demo/components/auth/login/login.service";
+import {MenuItem} from "primeng/api";
+import {WebSocketService} from "../demo/components/dashboard/WebSocketService";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {LayoutService} from "../layout/service/app.layout.service";
-import {Router} from "@angular/router";
+import {jwtDecode} from "jwt-decode";
+import Swal from "sweetalert2";
 
 @Component({
     selector: 'app-header-front',
@@ -8,20 +14,48 @@ import {Router} from "@angular/router";
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    menuVisible: boolean = false;
-    loggedIn = false;
-    constructor(private router: Router) {}
-    ngOnInit() {
-        if (sessionStorage.getItem("accessToken")) {
-            this.loggedIn = true;
-        }
+    dropdownVisible = false;
+
+    toggleDropdown() {
+        this.dropdownVisible = !this.dropdownVisible;
     }
-    toggleMenu() {
-        this.menuVisible = !this.menuVisible;
+    items!: MenuItem[];
+    notificationCounter: number = 0;
+    notifications: any ;
+    allNotifications:any;
+    isDropdownVisible1 = false;
+    profileData: any;
+    accessToken = localStorage.getItem("accessToken");
+    loggedIn = false;
+    @ViewChild('menubutton') menuButton!: ElementRef;
+
+    @ViewChild('topbarmenubutton') topbarMenuButton!: ElementRef;
+
+    @ViewChild('topbarmenu') menu!: ElementRef;
+
+    constructor(private webSocketService:WebSocketService,private http: HttpClient,public layoutService: LayoutService,private  authService:AuthService, private router: Router) {
+
+
     }
 
-    Login() {
+    ngOnInit(): void {
+        if (this.accessToken) {
+            this.loggedIn = true;
+        }
+
+
+        this.authService.getProfile().subscribe(data => {
+            this.profileData = data;
+        })
+    }
+
+    logout() {
+        this.authService.logOut();
+        this.loggedIn = false;
         this.router.navigate(['/auth/login']);
+    }
+    myProfile() {
+        this.router.navigate(['/user/profile']);
     }
 
     Forum() {
@@ -32,15 +66,15 @@ export class HeaderComponent {
         this.router.navigate(['/auth/login/register']);
     }
 
-    @HostListener('document:click', ['$event'])
-    onDocumentClick(event: Event): void {
-        if (!this.menuVisible) {
-            return;
-        }
+    Login() {
+        this.router.navigate(['/auth/login']);
+    }
 
-        const targetElement = event.target as HTMLElement;
-        if (!targetElement.closest('.header')) {
-            this.menuVisible = false;
-        }
+    SendReclamation() {
+        this.router.navigate(['/sendreclamation']);
+    }
+
+    Chat() {
+        this.router.navigate(['/chat']);
     }
 }
