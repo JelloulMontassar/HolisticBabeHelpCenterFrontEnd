@@ -1,0 +1,52 @@
+<div class="col-12">
+    <div class="card">
+
+        <p-table #dt1 [value]="threads" dataKey="id" [rows]="5" [loading]="loading" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" [globalFilterFields]="['title', 'author.name']" responsiveLayout="scroll">
+            <ng-template pTemplate="header" class="text-center">
+                <tr>
+                    <th style="width:100px">Thread ID</th>
+                    <th style="width:500px">Thread Title</th>
+                    <th style="width:200px">Author</th>
+                    <th style="width:200px">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-thread>
+                <tr>
+                    <td>{{thread.id}}</td>
+                    <td>{{thread.title}}</td>
+                    <td><img [src]="'data:image/jpeg;base64,' + thread?.author.profileImage" width="32" height="32" style="vertical-align: middle; border-radius: 50%;" class="p-mr-2"/>
+                        {{thread.author.firstName}} {{thread.author.lastName}}
+                    </td>
+                    <td class="text-center">
+                        <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-mr-2" (click)="viewThread(thread)"></button>
+                        <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="DeleteThread(thread)"></button>
+                    </td>
+
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-dialog header="{{dialogHeader}}" [(visible)]="displayModal" [style]="{width: '400px', 'max-width': '100%'}" [closable]="true">
+    <form [formGroup]="threadForm" (ngSubmit)="onSave()" class="p-fluid">
+        <div class="p-field p-grid">
+            <label for="title" class="p-col-12 p-md-4">Thread Title</label>
+            <div class="p-col-12 p-md-8">
+                <input id="title" pInputText formControlName="title">
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="author" class="p-col-12 p-md-4">Author</label>
+            <div class="p-col-12 p-md-8">
+                <input id="author" pInputText formControlName="author" disabled>
+            </div>
+        </div>
+        <p-footer>
+            <div class="p-d-flex p-jc-end">
+                <button type="button" pButton label="Cancel" icon="pi pi-times" class="p-button-text p-mr-2" (click)="displayModal = false"></button>
+                <button type="submit" pButton label="Save" icon="pi pi-check"></button>
+            </div>
+        </p-footer>
+    </form>
+</p-dialog>

@@ -24,7 +24,7 @@ export class FaqService {
     }
 
     getFaqs(): Observable<Faq[]> {
-        return this.http.get<Faq[]>(`${this.baseUrl}`, { headers: this.getAuthHeaders() });
+        return this.http.get<Faq[]>(`${this.baseUrl}`);
     }
 
     getFaq(id: number): Observable<Faq> {

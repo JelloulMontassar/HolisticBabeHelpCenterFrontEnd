@@ -1,16 +1,68 @@
-<div class="card p-fluid" style="width: 50%; margin: auto;">
-    <h5 class="card-header text-center">ADD FAQ</h5>
-    <div class="card-body">
-        <form [formGroup]="faqForm" (ngSubmit)="addFaq()">
-            <div class="field">
-                <label htmlFor="question">Question</label>
-                <input pInputText id="question" type="text" formControlName="question" />
-            </div>
-            <div class="field">
-                <label htmlFor="answer">Answer</label>
-                <textarea pInputTextarea id="answer" rows="5" formControlName="answer"></textarea>
-            </div>
-            <button pButton label="Add FAQ"></button>
-        </form>
+<style>
+    .p-dialog .p-dialog-header {
+        background-color: #007ad9;
+        color: white;
+    }
+
+    .p-dialog .p-dialog-footer {
+        background-color: #f4f4f4;
+    }
+
+    .p-field {
+        margin-bottom: 1rem;
+    }
+
+    .p-field label {
+        font-weight: bold;
+    }
+</style>
+
+<div class="col-12">
+    <div class="card">
+        <div class="flex justify-content-between flex-column sm:flex-row mb-2">
+            <button pButton label="Add FAQ" icon="pi pi-plus" class="p-button-success mb-2" (click)="addFaq()"></button>
+        </div>
+        <p-table #dt1 [value]="faqs" dataKey="id" [rows]="5" [loading]="loading" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" [globalFilterFields]="['question', 'answer']" responsiveLayout="scroll">
+            <ng-template pTemplate="header" class="text-center">
+                <tr>
+                    <th style="width:500px">Question</th>
+                    <th style="width:500px">Answer</th>
+                    <th style="width:200px">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-faq>
+                <tr>
+                    <td>{{faq.question}}</td>
+                    <td>{{faq.answer}}</td>
+                    <td class="text-center">
+                        <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-mr-2" (click)="editFaq(faq)"></button>
+                        <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteFaq(faq)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
 </div>
+
+<p-dialog header="{{dialogHeader}}" [(visible)]="displayModal" [style]="{width: '400px', 'max-width': '100%'}" [closable]="true">
+    <form [formGroup]="faqForm" (ngSubmit)="onSave()" class="p-fluid">
+        <div class="p-field p-grid">
+            <label for="question" class="p-col-12 p-md-4">Question</label>
+            <div class="p-col-12 p-md-8">
+                <input id="question" pInputText formControlName="question">
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="answer" class="p-col-12 p-md-4">Answer</label>
+            <div class="p-col-12 p-md-8">
+                <textarea id="answer" pInputTextarea rows="5" formControlName="answer"></textarea>
+            </div>
+        </div>
+        <p-footer>
+            <div class="p-d-flex p-jc-end">
+                <button type="button" pButton label="Cancel" icon="pi pi-times" class="p-button-text p-mr-2" (click)="displayModal = false"></button>
+                <button type="submit" pButton label="Save" icon="pi pi-check"></button>
+            </div>
+        </p-footer>
+    </form>
+</p-dialog>

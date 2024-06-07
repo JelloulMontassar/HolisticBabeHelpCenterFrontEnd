@@ -35,6 +35,7 @@ import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
 import {ProfileUserComponent} from "./profile-user/profile-user.component";
 import {DashboardModule} from "./demo/components/dashboard/dashboard.module";
 import {ChatUserComponent} from "./chat-user/chat-user.component";
+import {ThreadsAdminComponent} from "./threads-admin/threads-admin.component";
 
 @NgModule({
     declarations: [AppComponent,
@@ -43,7 +44,15 @@ import {ChatUserComponent} from "./chat-user/chat-user.component";
         CategoriesComponent,
         PostsComponent,
         ThreadsComponent,
-        ForumsComponent, HeaderComponent,HomeComponent,PostDetailsComponent,FaqComponent,FaqAdminComponent,ProfileUserComponent,ChatUserComponent
+        ForumsComponent,
+        HeaderComponent,
+        HomeComponent,
+        PostDetailsComponent,
+        FaqComponent,
+        FaqAdminComponent,
+        ProfileUserComponent,
+        ChatUserComponent,
+        ThreadsAdminComponent
 
 
     ],

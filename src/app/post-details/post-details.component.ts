@@ -40,10 +40,16 @@ export class PostDetailsComponent implements OnInit {
         if (this.commentForm.valid) {
             const commentContent = this.commentForm.get('content')?.value;
 
-            this.forumService.addComment(this.post.id, commentContent).subscribe(() => {
-            this.commentForm.reset();
-            this.loadPost(this.post.id);
-            });
+            if (commentContent) {
+                this.forumService.addComment(this.post.id, commentContent).subscribe(() => {
+                    this.commentForm.reset();
+                    this.loadPost(this.post.id);
+                });
+            } else {
+                console.error('Comment content is null or undefined');
+            }
+        } else {
+            console.error('Form is not valid');
         }
     }
 }

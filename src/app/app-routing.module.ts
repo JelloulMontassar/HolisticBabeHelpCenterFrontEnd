@@ -13,6 +13,7 @@ import {FaqComponent} from "./faq/faq.component";
 import {FaqAdminComponent} from "./faq-admin/faq-admin.component";
 import {ProfileUserComponent} from "./profile-user/profile-user.component";
 import {ChatUserComponent} from "./chat-user/chat-user.component";
+import {ThreadsAdminComponent} from "./threads-admin/threads-admin.component";
 
 @NgModule({
     imports: [
@@ -25,9 +26,10 @@ import {ChatUserComponent} from "./chat-user/chat-user.component";
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
                     { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
                     { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
-                    { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
-                    ,{path : "categories", component: CategoriesComponent},
+                    { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) },
+                    {path : "categories", component: CategoriesComponent},
                     {path : "faq", component: FaqAdminComponent},
+                    {path : "forum", component: ThreadsAdminComponent},
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
